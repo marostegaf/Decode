@@ -17,6 +17,6 @@
   
 ## 💻 Projeto
 Figma do Projeto: 🔗[Figma, clique aqui!](https://www.figma.com/design/JYACrMCA95sAZ5ZIamuRCq/Decode?node-id=0%3A1&t=hJ2xk8h9fZeMeYMd-1)
-<br>Disponível em: 🔗[Decode, clique aqui!](https://decodificador-mm.vercel.app/)</br>
+<br>Disponível em: 🔗[Decode, clique aqui!](https://decode-one.vercel.app/)</br>
 
 
