@@ -71,7 +71,7 @@
 @media (max-width: 450px) {
     .texto {
         width: 100%;
-        height: 300px;
+        height: 45vh;
         font-size: 25px;
     }
 
