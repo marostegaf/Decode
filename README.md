@@ -1,7 +1,7 @@
 <h1 align="center"> Decode </h1>
 
 <h3 align="center">
-<br>Troque informações confidenciais com Segurança</br>
+<br>Troque informações confidenciais com segurança!</br>
 </h3>
 
 ### ![image](https://github.com/marostegaf/Decode/assets/103620713/db0f08d7-a232-4af1-be79-e83bd54404ff)
