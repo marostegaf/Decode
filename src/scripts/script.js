@@ -14,6 +14,11 @@ const botao_copiar = document.querySelector(".conteudo-direita-copiar");
 input.addEventListener("input", function () {
     const texto = input.value;
     // Voltar a imagem padrão quando não houver texto
+    if (texto == "") {
+        texto_conteudo_direita.style.display = "none";
+        imagens_conteudo_direita.style.display = "flex";
+        botao_copiar.style.display = "none";
+    }
 
     if (texto == "") {
         aviso.style.color = "#495057";
