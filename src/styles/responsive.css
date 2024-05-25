@@ -71,7 +71,7 @@
 @media (max-width: 450px) {
     .texto {
         font-size: 25px;
-        height: 42vh;
+        height: 250px;
     }
 
     .conteudo-esquerda-botoes {
@@ -82,7 +82,7 @@
 
     .conteudo-direita {
         width: calc(100% - 10%);
-        height: 100%;
+        height: calc(100vh - 10%);
         margin: 0 5%;
         padding: 5% 5%;
         display: flex;
