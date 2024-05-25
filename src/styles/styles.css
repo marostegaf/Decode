@@ -79,23 +79,29 @@ main {
     flex-direction: column;
 }
 
-.conteudo-esquerda-regras {
+.conteudo-esquerda-botoes-lingua {
     margin-bottom: 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     cursor: default;
 }
 
-.conteudo-esquerda-regras img {
-    width: 20px;
-    margin-left: 4px;
+.conteudo-esquerda-botoes-lingua button {
+    padding: 8px 8px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #FFFFFF;
+    color: #4E4CD3;
+    border: 1.8px solid #4E4CD3;
 }
 
-.conteudo-esquerda-regras p {
-    font-size: 15px;
-    color: #574949;
-    transition: 0.5s;
+.conteudo-esquerda-botoes-lingua button:hover {
+    background-color: #4E4CD3;
+    color: #FFFFFF;
 }
 
 .conteudo-esquerda-botoes {

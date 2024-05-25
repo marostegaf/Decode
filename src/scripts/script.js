@@ -1,36 +1,66 @@
 let permitido_copiar = true;
+let linguagem = "pt";
 
-const aviso = document.querySelector(".conteudo-esquerda-regras p");
 const input = document.querySelector(".texto");
 const botao_criptografar = document.querySelector(".criptografar");
 const botao_descriptografar = document.querySelector(".descriptografar");
 
 const mensagem_titulo = document.querySelector(".conteudo-direita-mensagem h2");
-const mensagem_paragrafo = document.querySelector(".mensagens p");
+const mensagem_paragrafo = document.querySelector(".conteudo-direita-mensagem p");
 const texto_conteudo_direita = document.querySelector(".texto-criptografado");
 const imagens_conteudo_direita = document.querySelector(".conteudo-direita-itens");
 const botao_copiar = document.querySelector(".conteudo-direita-copiar");
 
+const botao_pt = document.querySelector(".pt");
+const botao_en = document.querySelector(".en");
+
+botao_pt.addEventListener("click", function() {
+    linguagem = "pt";
+    botao_criptografar.innerHTML = "Criptografar";
+    botao_descriptografar.innerHTML = "Descriptografar"
+    input.placeholder = "Digite seu Texto"
+    mensagem_titulo.innerHTML = "Nenhuma mensagem encontrada"
+    mensagem_paragrafo.innerHTML = "Digite um texto que você deseja criptografar ou descriptografar."
+    botao_copiar.innerHTML = "Copiar"
+});
+
+botao_en.addEventListener("click", function() {
+    linguagem = "en"
+    botao_criptografar.innerHTML = "Encrypt";
+    botao_descriptografar.innerHTML = "Decrypt";
+    input.placeholder = "Enter your Text"
+    mensagem_titulo.innerHTML = "No messages found"
+    mensagem_paragrafo.innerHTML = "Enter text that you want to encrypt or decrypt."
+    botao_copiar.innerHTML = "Copy"
+});
+
 input.addEventListener("input", function () {
     const texto = input.value;
     // Voltar a imagem padrão quando não houver texto
-    if (texto == "") {
-        texto_conteudo_direita.style.display = "none";
-        imagens_conteudo_direita.style.display = "flex";
-        botao_copiar.style.display = "none";
-    }
+    texto_conteudo_direita.style.display = "none";
+    imagens_conteudo_direita.style.display = "flex";
+    botao_copiar.style.display = "none";
 
     if (texto == "") {
-        aviso.style.color = "#495057";
         mensagem_titulo.style.color = "#000000"
-        mensagem_titulo.innerHTML = "Nenhuma mensagem encontrada"
-        mensagem_paragrafo.innerHTML = "Digite um texto que você deseja criptografar ou descriptografar."
+        if (linguagem == "pt") {
+            mensagem_titulo.innerHTML = "Nenhuma mensagem encontrada"
+            mensagem_paragrafo.innerHTML = "Digite um texto que você deseja criptografar ou descriptografar."
+        } else {
+            mensagem_titulo.innerHTML = "No messages found"
+            mensagem_paragrafo.innerHTML = "Enter text that you want to encrypt or decrypt."
+        }
+
     } else {
-        aviso.style.color = "#495057";
         permitido_copiar = true;
         mensagem_titulo.style.color = "#3F6DDE"
-        mensagem_titulo.innerHTML = "Mensagem encontrada com sucesso!"
-        mensagem_paragrafo.innerHTML = "Pronto para criptografar ou descriptografar."
+        if(linguagem == "pt") {
+            mensagem_titulo.innerHTML = "Mensagem encontrada com sucesso!"
+            mensagem_paragrafo.innerHTML = "Pronto para criptografar ou descriptografar."
+        } else {
+            mensagem_titulo.innerHTML = "Message found successfully!"
+            mensagem_paragrafo.innerHTML = "Ready to encrypt or decrypt."
+        }
     }
 });
 
@@ -56,7 +86,7 @@ botao_criptografar.addEventListener("click", function () {
 
 botao_descriptografar.addEventListener("click", function () {
     const texto = input.value;
-    let texto_desencriptografado = descriptografar(texto);
+    let texto_descriptografado = descriptografar(texto);
 
     if (texto != "") {
         if (permitido_copiar) {
@@ -64,7 +94,7 @@ botao_descriptografar.addEventListener("click", function () {
             imagens_conteudo_direita.style.display = "none";
             botao_copiar.style.display = "block";
 
-            texto_conteudo_direita.innerHTML = texto_desencriptografado;
+            texto_conteudo_direita.innerHTML = texto_descriptografado;
         } else {
             texto_conteudo_direita.style.display = "none";
             imagens_conteudo_direita.style.display = "flex";
