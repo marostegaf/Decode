@@ -82,7 +82,7 @@
 
     .conteudo-direita {
         width: calc(100% - 10%);
-        height: calc(35vh - 10%);
+        height: calc(40vh - 10%);
         margin: 0 5%;
         padding: 5% 5%;
         display: flex;
