@@ -14,19 +14,8 @@ const botao_copiar = document.querySelector(".conteudo-direita-copiar");
 input.addEventListener("input", function () {
     const texto = input.value;
     // Voltar a imagem padrão quando não houver texto
-    if (texto == "") {
-        texto_conteudo_direita.style.display = "none";
-        imagens_conteudo_direita.style.display = "flex";
-        botao_copiar.style.display = "none";
-    }
 
-    if (/[^a-z, ]/.test(texto)) {
-        aviso.style.color = "#ec2828";
-        permitido_copiar = false;
-        mensagem_titulo.style.color = "#ec2828"
-        mensagem_titulo.innerHTML = "Mensagem incorreta"
-        mensagem_paragrafo.innerHTML = "Apenas letras minúsculas e sem acento."
-    } else if (texto == "") {
+    if (texto == "") {
         aviso.style.color = "#495057";
         mensagem_titulo.style.color = "#000000"
         mensagem_titulo.innerHTML = "Nenhuma mensagem encontrada"
@@ -42,7 +31,7 @@ input.addEventListener("input", function () {
 
 botao_criptografar.addEventListener("click", function () {
     const texto = input.value;
-    let texto_criptografado = texto.replace(/e/g, "enter").replace(/i/g, "imes").replace(/a/g, "ai").replace(/o/g, "ober").replace(/u/g, "ufat");
+    let texto_criptografado = criptografar(texto);
 
     if (texto != "") {
         if (permitido_copiar) {
@@ -62,7 +51,7 @@ botao_criptografar.addEventListener("click", function () {
 
 botao_descriptografar.addEventListener("click", function () {
     const texto = input.value;
-    let texto_desencriptografado = texto.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g, "u");
+    let texto_desencriptografado = descriptografar(texto);
 
     if (texto != "") {
         if (permitido_copiar) {
@@ -71,7 +60,6 @@ botao_descriptografar.addEventListener("click", function () {
             botao_copiar.style.display = "block";
 
             texto_conteudo_direita.innerHTML = texto_desencriptografado;
-
         } else {
             texto_conteudo_direita.style.display = "none";
             imagens_conteudo_direita.style.display = "flex";
@@ -79,6 +67,88 @@ botao_descriptografar.addEventListener("click", function () {
         }
     }
 });
+
+function criptografar(texto) {
+    const mapeamento = {
+        'e': 'enter',
+        'é': 'éntér',
+        'ê': 'êntêr',
+        'i': 'imes',
+        'í': 'îmês',
+        'a': 'ai',
+        'á': 'âi',
+        'â': 'âî',
+        'ã': 'ãî',
+        'o': 'ober',
+        'ó': 'ôbér',
+        'ô': 'ôbêr',
+        'õ': 'õbêr',
+        'u': 'ufat',
+        'ú': 'ûfât',
+        'E': 'ENTER',
+        'É': 'ÊNTÉR',
+        'Ê': 'ÊNTÊR',
+        'I': 'IMES',
+        'Í': 'ÎMÊS',
+        'A': 'AI',
+        'Á': 'ÂI',
+        'Â': 'ÂÎ',
+        'Ã': 'ÃÎ',
+        'O': 'OBER',
+        'Ó': 'ÔBÉR',
+        'Ô': 'ÔBÊR',
+        'Õ': 'ÕBÊR',
+        'U': 'UFAT',
+        'Ú': 'ÛFÂT'
+    };
+
+    return texto.split('').map(char => mapeamento[char] || char).join('');
+}
+
+
+function descriptografar(texto) {
+    const mapeamentoReverso = {
+        'enter': 'e',
+        'éntér': 'é',
+        'êntêr': 'ê',
+        'imes': 'i',
+        'îmês': 'í',
+        'ai': 'a',
+        'âi': 'á',
+        'âî': 'â',
+        'ãî': 'ã',
+        'ober': 'o',
+        'ôbér': 'ó',
+        'ôbêr': 'ô',
+        'õbêr': 'õ',
+        'ufat': 'u',
+        'ûfât': 'ú',
+        'ENTER': 'E',
+        'ÊNTÉR': 'É',
+        'ÊNTÊR': 'Ê',
+        'IMES': 'I',
+        'ÎMÊS': 'Í',
+        'AI': 'A',
+        'ÂI': 'Á',
+        'ÂÎ': 'Â',
+        'ÃÎ': 'Ã',
+        'OBER': 'O',
+        'ÔBÉR': 'Ó',
+        'ÔBÊR': 'Ô',
+        'ÕBÊR': 'Õ',
+        'UFAT': 'U',
+        'ÛFÂT': 'Ú'
+    };
+
+    let textoDescriptografado = texto;
+
+    for (const [key, value] of Object.entries(mapeamentoReverso)) {
+        textoDescriptografado = textoDescriptografado.split(key).join(value);
+    }
+
+    return textoDescriptografado;
+}
+
 
 botao_copiar.addEventListener("click", function () {
     const textoCriptografado = texto_conteudo_direita.textContent;
