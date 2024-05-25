@@ -24,7 +24,7 @@
 
     .conteudo-direita {
         width: calc(100% - 10%);
-        height: calc(35vh - 10%);
+        height: calc(35vh - 12%);
         margin: 0 5%;
         padding: 2% 1.5%;
         display: flex;
