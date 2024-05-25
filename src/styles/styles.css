@@ -85,7 +85,6 @@ main {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    cursor: default;
 }
 
 .conteudo-esquerda-botoes-lingua button {
@@ -97,6 +96,7 @@ main {
     background-color: #FFFFFF;
     color: #4E4CD3;
     border: 1.8px solid #4E4CD3;
+    cursor: pointer;
 }
 
 .conteudo-esquerda-botoes-lingua button:hover {
