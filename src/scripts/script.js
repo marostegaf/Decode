@@ -24,6 +24,8 @@ botao_pt.addEventListener("click", function() {
     mensagem_titulo.innerHTML = "Nenhuma mensagem encontrada";
     mensagem_paragrafo.innerHTML = "Digite um texto que você deseja criptografar ou descriptografar.";
     botao_copiar.innerHTML = "Copiar";
+    limpar_atalho.innerHTML = "Limpar";
+    colar_atalho.innerHTML = "Colar";
 });
 
 botao_en.addEventListener("click", function() {
@@ -34,6 +36,8 @@ botao_en.addEventListener("click", function() {
     mensagem_titulo.innerHTML = "No messages found";
     mensagem_paragrafo.innerHTML = "Enter text that you want to encrypt or decrypt.";
     botao_copiar.innerHTML = "Copy";
+    limpar_atalho.innerHTML = "Clean";
+    colar_atalho.innerHTML = "Paste";
 });
 
 // Botões de Atalho
