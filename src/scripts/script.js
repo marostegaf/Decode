@@ -34,6 +34,26 @@ botao_en.addEventListener("click", function() {
     botao_copiar.innerHTML = "Copy"
 });
 
+const limpar_atalho = document.querySelector(".limpar-atalho");
+const colar_atalho = document.querySelector(".colar-atalho");
+
+limpar_atalho.addEventListener("click", function () {
+    input.value = "";
+    mensagem_titulo.style.color = "#000000"
+        if (linguagem == "pt") {
+            mensagem_titulo.innerHTML = "Nenhuma mensagem encontrada"
+            mensagem_paragrafo.innerHTML = "Digite um texto que você deseja criptografar ou descriptografar."
+        } else {
+            mensagem_titulo.innerHTML = "No messages found"
+            mensagem_paragrafo.innerHTML = "Enter text that you want to encrypt or decrypt."
+        }
+});
+
+colar_atalho.addEventListener("click", function () {
+    const textoCriptografado = texto_conteudo_direita.textContent;
+    input.value = textoCriptografado;
+});
+
 input.addEventListener("input", function () {
     const texto = input.value;
     // Voltar a imagem padrão quando não houver texto
@@ -183,7 +203,6 @@ function descriptografar(texto) {
 
     return textoDescriptografado;
 }
-
 
 botao_copiar.addEventListener("click", function () {
     const textoCriptografado = texto_conteudo_direita.textContent;
