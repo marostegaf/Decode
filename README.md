@@ -19,7 +19,7 @@
 #### Usabilidade ao Usuário
 - Adicionamos um botão de "Limpar" ao programa para facilitar a usabilidade do usuário.
 - Adicionamos um Botão de "Colar" ao programa para facilitar a usabilidade do usuário.
-- 
+
 #### Ajustes
 - Aumentamos o tamanho horizontal para pegar 100% do tamanho do celular.
 - Ajustamos erros de responsividade por causa dos botões presentes no próprio celular.
